@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+fieldset{
+	
+	font-weight: 900;
+}
+.input{
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.3rem;
+	border: 1px solid #333;
+}
+.Boxbtn{
+	text-align: center;
+	margin: 2rem;
+}
+.btn{
+	padding: 0.4rem 1rem;
+	cursor: pointer;
+	border-radius: 0.3rem;
+	border: 1px solid #8e8f8f;
+}
+.btn:hover{
+	opacity: 0.6;
+}
+
