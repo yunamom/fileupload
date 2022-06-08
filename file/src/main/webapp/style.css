@@ -1,5 +1,30 @@
 @charset "UTF-8";
 
+*{
+	margin: 0;
+	padding: 0;
+}
+header{
+	height: 100px;
+	line-height: 100px;
+	background: #444;
+	text-align: center;
+}
+nav ul{
+	height: 50px;
+	line-height: 50px;
+	background: #333;
+}
+li{
+	float: left;
+	list-style: none;
+	padding: 0 10px;
+}
+a{
+	text-decoration: none;
+	color: rgb(104, 105, 105);
+	font-weight: 900;
+}
 fieldset{
 	
 	font-weight: 900;
@@ -21,6 +46,45 @@ fieldset{
 	border: 1px solid #8e8f8f;
 }
 .btn:hover{
+	opacity: 0.6;
+}
+.imgList{
+	width:50px;
+	height:50px;
+}
+.wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+section{
+	height: 100%;
+	width: 100%;
+}
+.title{
+	margin: 3rem;
+	font-size: 30px;
+	font-weight: 900;
+	text-align: center;
+}
+.Box{
+	height: 300px;
+}
+.Box table{
+	width: 600px;
+	text-align: center;
+}
+.Box table, .Box th, .Box td{
+	border: 1px solid #333;
+	border-collapse: collapse;
+}
+.range{
+	margin: 0 10px;
+	font-size: 20px;
+	cursor: pointer;
+	
+}
+.range:hover{
 	opacity: 0.6;
 }
 

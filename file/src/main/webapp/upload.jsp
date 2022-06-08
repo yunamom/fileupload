@@ -8,7 +8,10 @@
 <title>파일 업로드</title>
 </head>
 <body>
-
+<%@ include file="topmenu.jsp" %>
+<section>
+<div class="title">파일 업로드</div>
+<div class="wrapper">
 <fieldset>
 	<legend>파일 업로드</legend>
 	<form method="post" action="UploadFile" enctype="multipart/form-data">
@@ -24,7 +27,7 @@
 		</tr>
 		<tr>
 		<td></td>
-		<td><input type="file" name="파일 선택" name="file"/></td>
+		<td><input type="file" name="file"/></td>
 		</tr>
 		<tr>
 		<td colspan="2" class="Boxbtn">
@@ -35,6 +38,7 @@
 	</table>
 	</form>
 </fieldset>
-
+</div>
+</section>
 </body>
 </html>
