@@ -1,22 +1,20 @@
 package service;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
 
-import javax.servlet.ServletContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.FileDAO;
 
 
-@WebServlet("/UploadFile")
+@WebServlet("/")
 public class UploadFile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,42 +26,44 @@ public class UploadFile extends HttpServlet {
 		service(request, response);
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/* URL check */
+		String uri = request.getRequestURI();
+		String context = request.getContextPath();
+		String command = uri.substring(context.length());
+		String site = "upload.jsp";
+		
+		System.out.println("command : "+command);
 		
 		FileDAO dao = new FileDAO();
-		
-		ServletContext text = getServletContext(); //어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨.
-		String saveDir = text.getRealPath("Upload"); //절대 경로 가져오기
-		System.out.println("절대경로 >> " + saveDir);
-			
-		int maxSize = 3*1024*1024; // 3MB
-		String encoding = "UTF-8";
-			
-			// saveDir: 경로
-			// maxSize: 크기제한 설정
-			// encoding: 인코딩타입 설정
-			// new DefaultFileRenamePolicy(): 동일한 이름일 경우 자동으로 (1),(2)..붙게 해줌		
-			
-		MultipartRequest multi = new MultipartRequest(request, saveDir, maxSize, encoding, new DefaultFileRenamePolicy());
 		int result = 0;
-		String name = multi.getParameter("name");
-		String title = multi.getParameter("title");
-		String file = multi.getFilesystemName("file");
-		System.out.println(name+title+file);
+		switch(command) {
+		case "/File" :
+			site = "upload.jsp";
+			break;
+		case "/UploadFile" : 
+			result = dao.insert(request, response);
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			if(result == 1) {
+				out.println("<script>");
+				out.println(" alert('파일등록이 성공'); location.href='"+context+"';  ");
+				out.println("</script>");
+				out.flush();
+			}else {
+				out.println("<script>");
+				out.println("alert('등록실패!'); location.href='"+context+"'; ");
+				out.println("</script>");
+				out.flush();
+			}
+			break;
+		case "/ListFile" : 		
+			site = dao.selectAll(request, response);
+			break;
 		
-		try {
-			
-			result = dao.insert(name, title, file);
-		} catch (IOException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		response.setContentType("text/html; charset=UTF-8");
-		
-		String alert = result>0 ? "저장완료!" : "저장실패!";
-		String mvURL = result>0 ? "ListFile" : "upload.jsp";
-		System.out.println(alert);
-		response.sendRedirect(mvURL);
-	
+		/* 결과 */
+		RequestDispatcher dispatcher = request.getRequestDispatcher(site);
+		dispatcher.forward(request, response);
 			
 	}
 }
