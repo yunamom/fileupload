@@ -14,7 +14,7 @@
 <div class="wrapper">
 <fieldset>
 	<legend>파일 업로드</legend>
-	<form method="post" action="UploadFile" enctype="multipart/form-data">
+	<form method="post" action="UploadService.do" enctype="multipart/form-data">
 	<!-- 서버에 파일을 보낼것 이라고 알려주기 위해 enctype 옵션에 multipart/form-data 선언해주 -->
 	<table>
 		<tr>
@@ -32,7 +32,7 @@
 		<tr>
 		<td colspan="2" class="Boxbtn">
 		<Button class="btn" type="submit" >Upload</Button>
-		<Button class="btn" type="Button" onclick="location='upload.jsp'">Reset</Button>
+		<Button class="btn" type="Button" onclick="location='upload'">Reset</Button>
 		</td>
 		</tr>
 	</table>

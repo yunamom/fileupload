@@ -13,7 +13,7 @@ header{
 nav ul{
 	height: 50px;
 	line-height: 50px;
-	background: #333;
+	background: #837b93;
 }
 li{
 	float: left;
@@ -24,6 +24,9 @@ a{
 	text-decoration: none;
 	color: rgb(104, 105, 105);
 	font-weight: 900;
+}
+li a{
+	color: #fff;
 }
 fieldset{
 	
@@ -68,6 +71,10 @@ section{
 	font-weight: 900;
 	text-align: center;
 }
+.Boxtitle{
+	width:50px;
+	height:50px;
+}
 .Box{
 	height: 300px;
 }
@@ -76,9 +83,13 @@ section{
 	text-align: center;
 }
 .Box table, .Box th, .Box td{
-	border: 1px solid #333;
+	border: 1px solid #544952;
 	border-collapse: collapse;
 	padding: 0.5rem;
+}
+.Box th{
+	background: #837b93;
+	color: #fff;
 }
 
 .range{
@@ -91,15 +102,40 @@ section{
 	opacity: 0.6;
 }
 .Boxrange{
-	width: 170px;
+	width: 200px;
+	text-align: center;
 }
 .Boxprev{
 	width: 80px;
-	text-align: center;
+	text-align: right;
 }
 .Boxnext{
 	width: 80px;
-	text-align: center;
+	text-align: left;
+}
+.Filetitle {
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    text-align: left;
+}
+.Filetitle:hover{
+	opacity: 0.6;
+}
+.Filetitle a{
+	font-weight: 0;
+}
+.detail{
+	width: 500px;
+	height: 600px;
+	border: 1px solid #333;
+}
+.detail img{
+	width: 90%;
+	
 }
 /* 말줄임표 */
 .target {
@@ -109,5 +145,6 @@ section{
     text-overflow: ellipsis;
     border: none;
 }
+
 
 

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="C"%>
 
 <!DOCTYPE html>
@@ -13,7 +12,8 @@
 <body>
 <%@ include file="topmenu.jsp" %>
 <section>
-<div class="title">파일목록</div>
+<div class="title"><img class="Boxtitle" src="images/file2.png"/>
+</div>
 <div class="wrapper">
 	<div class="Box">
 	<table>
@@ -21,16 +21,17 @@
 			<th>No</th>
 			<th>Title</th>
 			<th>Name</th>
-			<th>FileName</th>
 			<th>Date</th>
+			<th>hits</th>
 		</tr>
 		<C:forEach var="i" items="${list }">
 			<tr>
 				<td>${i.unq }</td>
-				<td><p class="target" style="width:200px">${i.title }</p></td>
+				<td><a href="FileSelect.do?unq=${i.unq }" class="Filetitle">
+				${i.title }</a></td>
 				<td><p class="target" style="width:80px">${i.name }</p></td>
-				<td><p class="target" style="width:50px">${i.fileName }</p></td>
 				<td><p class="target" style="width:80px">${i.uploadDate }</p></td>
+				<td>${i.hits }</td>
 			</tr>
 		</C:forEach>
 	</table>
