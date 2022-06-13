@@ -39,7 +39,8 @@ public class UploadService implements Service {
 		String file = multi.getFilesystemName("file");
 		
 		
-		FileDAO dao = new FileDAO();
+		FileDAO dao = FileDAO.getInstance(); // static 영역에 올려진 객체를 메소드로 얻어와서 메모리를 절약하는 싱글톤 패턴
+		
 		int result = dao.insert(name, title, file);
 	
 		if(result > 0) {

@@ -12,8 +12,9 @@ public class FileSelectOneService implements Service {
     
     public void execute(HttpServletRequest request, HttpServletResponse response) {
     	String unq = request.getParameter("unq");
-    	FileDAO dao = new FileDAO();	
+    	FileDAO dao = FileDAO.getInstance();
     	
+    	dao.updateHit(unq); // 조회수증가 
     	request.setAttribute("file", dao.selectOne(unq));
     }
 }

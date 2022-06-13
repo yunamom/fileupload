@@ -96,7 +96,7 @@ public class FileDAO {
 	}
 	
 	//파일목록 조회 (start, end)
-	public ArrayList<File> selectAll(int start, int end) {
+	public ArrayList<File> selectAll(int start, int end, int total) {
 
 		ArrayList<File> list = new ArrayList<>();
 		
@@ -117,9 +117,11 @@ public class FileDAO {
 			pstmt.setInt(1, start);
 			pstmt.setInt(2, end);
 			rs = pstmt.executeQuery();
-			
+			int count = start;
 			while(rs.next()) {
+				
 				File file = new File();
+				file.setNo(total-count++);
 				file.setUnq(rs.getInt(1));
 				file.setName(rs.getString(2));
 				file.setTitle(rs.getString(3));
@@ -177,5 +179,25 @@ public class FileDAO {
 			e.printStackTrace();
 		}
 		return file;
+	}
+
+	public void updateHit(String unq) {
+		// 조회수증가
+		try {
+			conn = getConnection();
+			String sql = " UPDATE fileboard ";
+			       sql+= " SET hits = hits+1 ";
+			       sql+= " WHERE unq ="+unq;
+			pstmt = conn.prepareStatement(sql);
+					
+			pstmt.executeUpdate();
+			close();
+		
+			       
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 }

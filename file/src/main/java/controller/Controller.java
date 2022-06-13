@@ -34,33 +34,33 @@ public class Controller extends HttpServlet {
 		String conPath = request.getContextPath();
 		String command = uri.substring(conPath.length());
 		
-		String site = "index.jsp";
+		String site = null;
 		Service service = null;
 		switch(command) {
 		case "/Main.do"          :
-			site = "upload.jsp";
+			site = "fileupload/main.jsp";
 			break;
 			
 		case "/Upload.do"        :
-			site = "upload.jsp";
+			site = "fileupload/upload.jsp";
 			break;	
 			
 		case "/FileList.do"      :
 			service = new FileListService();
 			service.execute(request, response);
-			site = "list.jsp";
+			site = "fileupload/list.jsp";
 			break;
 			
 		case "/FileSelect.do"     :
 			service = new FileSelectOneService();
 			service.execute(request, response);
-			site = "detail.jsp";
+			site = "fileupload/detail.jsp";
 			break;
 			
 		case "/UploadService.do" :
 			service = new UploadService();
 			service.execute(request, response);
-			site = "upload.jsp";
+			site = "fileupload/main.jsp";
 			break;
 		}
 		

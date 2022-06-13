@@ -15,7 +15,7 @@ public class FileListService implements Service {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		FileDAO dao = new FileDAO();
+		FileDAO dao = FileDAO.getInstance();
 		
 		String view = request.getParameter("view");
 		
@@ -43,7 +43,7 @@ public class FileListService implements Service {
 		// 마지막 블락에서 총페이지수를 넘어가면 끝 페이지를 마지막 페이지 숫자로 넣어줍니다. 
 		endRange = (endRange >= endPage) ? endPage : endRange;
 		
-		ArrayList<File> list = dao.selectAll(start, end);
+		ArrayList<File> list = dao.selectAll(start, end, total);
 		
 		
 		Paging paging = new Paging();			

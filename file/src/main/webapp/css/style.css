@@ -4,6 +4,9 @@
 	margin: 0;
 	padding: 0;
 }
+body{
+	background: #ebecfa;
+}
 header{
 	height: 100px;
 	line-height: 100px;
@@ -28,9 +31,14 @@ a{
 li a{
 	color: #fff;
 }
-fieldset{
-	
-	font-weight: 900;
+.Boxfile{ /* 정중앙 */
+	margin: 3rem;
+	display: grid;
+	place-items: center;
+	min-height: 50vh;
+	background-color: rgba(255,255,255,0.7);
+	padding: 1rem;
+	border-radius: 0.3rem;
 }
 .input{
 	font-size: 1rem;
@@ -40,7 +48,7 @@ fieldset{
 }
 .Boxbtn{
 	text-align: center;
-	margin: 2rem;
+	padding: 1rem;
 }
 .btn{
 	padding: 0.4rem 1rem;
@@ -70,6 +78,13 @@ section{
 	font-size: 30px;
 	font-weight: 900;
 	text-align: center;
+	color: #615d6f;
+}
+.legend{
+	font-size: 20px;
+	text-align: center;
+	font-weight: 900;
+	color: #615d6f;
 }
 .Boxtitle{
 	width:50px;
@@ -86,6 +101,10 @@ section{
 	border: 1px solid #544952;
 	border-collapse: collapse;
 	padding: 0.5rem;
+}
+.unq{
+	font-size: 15px;
+	color: #aeb0b2;
 }
 .Box th{
 	background: #837b93;
@@ -128,13 +147,17 @@ section{
 .Filetitle a{
 	font-weight: 0;
 }
-.detail{
-	width: 500px;
-	height: 600px;
-	border: 1px solid #333;
+
+.Boxdetail{
+	width: 100%;
+	text-align:center;
+	background: #fff;
+	font-size: 12px;
+	color: #333;
 }
-.detail img{
-	width: 90%;
+.Boxfile img{
+	width: 300px;
+	
 	
 }
 /* 말줄임표 */

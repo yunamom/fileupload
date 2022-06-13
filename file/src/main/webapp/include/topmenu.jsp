@@ -7,9 +7,7 @@
 <title>topmenu</title>
 </head>
 <body>
-<header>
-hello ~
-</header>
+
 <nav>
 	<ul>
 		<li><a href="FileList.do">List</a></li>

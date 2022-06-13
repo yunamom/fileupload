@@ -8,6 +8,6 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<%@ include file="topmenu.jsp" %>
+<% response.sendRedirect("Main.do"); %>
 </body>
 </html>

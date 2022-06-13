@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="C"%>
-
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css?ver=1">
+<link rel="stylesheet" href="css/style.css?ver=1">
 <meta charset="UTF-8">
 <title>File List</title>
 </head>
 <body>
-<%@ include file="topmenu.jsp" %>
+<%@ include file="/include/topmenu.jsp" %>
 <section>
 <div class="title"><img class="Boxtitle" src="images/file2.png"/>
 </div>
@@ -26,7 +25,7 @@
 		</tr>
 		<C:forEach var="i" items="${list }">
 			<tr>
-				<td>${i.unq }</td>
+				<td class="unq">${i.no }</td>
 				<td><a href="FileSelect.do?unq=${i.unq }" class="Filetitle">
 				${i.title }</a></td>
 				<td><p class="target" style="width:80px">${i.name }</p></td>

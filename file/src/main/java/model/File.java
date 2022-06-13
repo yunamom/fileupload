@@ -3,6 +3,7 @@ package model;
 
 public class File {
 
+	private int no; //게시물번호
 	private int unq;
 	private String name;
 	private String title;
@@ -11,6 +12,13 @@ public class File {
 	private String uploadDate;
 
 	
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
 	
 	public int getUnq() {
 		return unq;
